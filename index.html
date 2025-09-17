@@ -1,14 +1,205 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arthur Harutyunyan - Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #1f1f1f;
+      border-bottom: 1px solid #333;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #fff;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #bbb;
+    }
+    .contact a {
+      margin: 0 10px;
+      color: #1da1f2;
+      text-decoration: none;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+    h2 {
+      border-bottom: 2px solid #333;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .skills, .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .skill, .project-card {
+      background: #1f1f1f;
+      padding: 1rem;
+      border-radius: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .skill {
+      text-align: center;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      cursor: pointer;
+    }
+    .experience-item {
+      margin-bottom: 2rem;
+    }
+    .experience-item h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #fff;
+    }
+    .experience-item p {
+      margin: 0.3rem 0;
+      color: #bbb;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #1f1f1f;
+      margin-top: 2rem;
+      color: #888;
+    }
+  </style>
 </head>
 <body>
- ip tv channels v3
- <a href="/players.main.m3u">open link</a>
+
+  <header>
+    <h1>Arthur Harutyunyan</h1>
+    <p>Senior Frontend Engineer | Mentor | Lecturer</p>
+    <div class="contact">
+      <a href="mailto:hayart98@gmail.com">📧 hayart98@gmail.com</a>
+      <a href="https://github.com/harutyunian" target="_blank">💻 GitHub</a>
+      <a href="https://www.linkedin.com/in/arthur-harutyunyan-a09a3111a/" target="_blank">🔗 LinkedIn</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>About Me</h2>
+      <p>
+        I am a Frontend Engineer with over 5 years of professional experience specializing in modern web technologies.
+        Passionate about building scalable applications, mentoring developers, and delivering high-quality user experiences.
+        Experienced in both product development and academic teaching.
+      </p>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <div id="skills-container" class="skills"></div>
+    </section>
+
+    <section>
+      <h2>Work Experience</h2>
+      <div class="experience-item">
+        <h3>Software Engineer – Grid Dynamics</h3>
+        <p><em>Apr 2022 – Present | Yerevan, Armenia</em></p>
+        <p>Specializing in microfrontend development, building high-quality UIs. Mentored developers and lectured at a Polytechnic University.</p>
+      </div>
+      <div class="experience-item">
+        <h3>Lecturer – National Polytechnic University of Armenia</h3>
+        <p><em>Jan 2023 – Jun 2023 | Yerevan, Armenia</em></p>
+        <p>Taught fundamentals of frontend development: HTML, CSS, JavaScript, and React.</p>
+      </div>
+      <div class="experience-item">
+        <h3>Software Engineer – NWSLAB</h3>
+        <p><em>Sep 2021 – Aug 2022 | Yerevan, Armenia</em></p>
+        <p>Developed asset management and transaction system using React & Redux-Saga with real-time data and security focus.</p>
+      </div>
+      <div class="experience-item">
+        <h3>Full Stack Engineer – Vineti</h3>
+        <p><em>Feb 2021 – Sep 2021 | Armenia</em></p>
+        <p>Built medical platform with React, Material-UI, and Jest. Enhanced usability and collaborated with teams for seamless integration.</p>
+      </div>
+      <div class="experience-item">
+        <h3>Frontend Developer – Alternative Creative Network LLC</h3>
+        <p><em>Jan 2019 – Feb 2021 | Armenia</em></p>
+        <p>Developed affiliate marketing platform with React & Redux, focusing on UX improvements and security protocols.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>My Projects</h2>
+      <div id="projects-container" class="projects-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Arthur Harutyunyan. All Rights Reserved.
+  </footer>
+
+  <script>
+    // Add your skills here 👇
+    const mySkills = [
+      { name: "React" },
+      { name: "Next.js" },
+      { name: "Redux / Redux-Saga" },
+      { name: "TypeScript" },
+      { name: "JavaScript (ES6+)" },
+      { name: "Material UI" },
+      { name: "Rect Native" },
+      { name: "Unit Testing" },
+      { name: "NestJS" }
+    ];
+
+    const skillsContainer = document.getElementById("skills-container");
+    mySkills.forEach(skill => {
+      const item = document.createElement("div");
+      item.className = "skill";
+      item.textContent = skill.name;
+      skillsContainer.appendChild(item);
+    });
+
+    // Add your projects here 👇
+    const myProjects = [
+      {
+        name: "Yvnow App",
+        description: "City event discovery app showing live and upcoming concerts, shows, and activities with interactive maps and partner profiles.",
+        link: "https://play.google.com/store/apps/details?id=com.yvnow&hl=en"
+      },
+      {
+        name: "Chrono 1010",
+        description: "CHRONO 10:10 — Boutique with Luxury Watches and Service Center",
+        link: "https://chrono1010.watch/"
+      }
+    ];
+
+    const projectsContainer = document.getElementById("projects-container");
+
+    myProjects.forEach(project => {
+      const card = document.createElement("div");
+      card.className = "project-card";
+      card.innerHTML = `
+        <h3>${project.name}</h3>
+        <p>${project.description}</p>
+      `;
+      card.onclick = () => window.open(project.link, "_blank");
+      projectsContainer.appendChild(card);
+    });
+
+    // Dynamic year for footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
